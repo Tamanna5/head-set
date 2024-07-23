@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product List Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+         .product-image {
+            max-width: 109%;
+            max-height: 200px;
+            height: auto;
+        }
+
+        .add-to-cart-button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Product List Page</h2>
+
+    <div class="product-container" id="productContainer">
+    </div>
+
+    <script>
+        const products = [
+            { image: 'product1.jpg', name: 'Product 1', price: 19.99 },
+            { image: 'product2.jpg', name: 'Product 2', price: 29.99 },
+            { image: 'product3.jpg', name: 'Product 3', price: 39.99 },
+            { image: 'product4.jpg', name: 'Product 4', price: 49.99 },
+            { image: 'product5.jpg', name: 'Product 5', price: 59.99 },
+            { image: 'product6.jpg', name: 'Product 6', price: 19.99 },
+            { image: 'product7.jpg', name: 'Product 7', price: 29.99 },
+            { image: 'product8.jpg', name: 'Product 8', price: 39.99 },
+            { image: 'product9.jpg', name: 'Product 9', price: 49.99 },
+            { image: 'product10.jpg', name: 'Product 10', price: 59.99 },
+            { image: 'product11.jpg', name: 'Product 11', price: 19.99 },
+            { image: 'product12.jpg', name: 'Product 12', price: 29.99 },
+            { image: 'product13.jpg', name: 'Product 13', price: 39.99 },
+            { image: 'product14.jpg', name: 'Product 14', price: 49.99 },
+            { image: 'product15.jpg', name: 'Product 15', price: 59.99 },
+            { image: 'product16.jpg', name: 'Product 16', price: 19.99 },
+            { image: 'product17.jpg', name: 'Product 17', price: 29.99 },
+            { image: 'product18.jpg', name: 'Product 18', price: 39.99 },
+            { image: 'product19.jpg', name: 'Product 19', price: 49.99 },
+            { image: 'product20.jpg', name: 'Product 20', price: 59.99 },
+            { image: 'product21.jpg', name: 'Product 21', price: 19.99 },
+            { image: 'product22.jpg', name: 'Product 22', price: 29.99 },
+            { image: 'product23.jpg', name: 'Product 23', price: 39.99 },
+            { image: 'product24.jpg', name: 'Product 24', price: 49.99 },
+            { image: 'product25.jpg', name: 'Product 25', price: 59.99 },
+
+        ];
+
+        function displayProducts() {
+            const productContainer = document.getElementById('productContainer');
+
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+
+                const productImage = document.createElement('img');
+                productImage.src = product.image;
+                productImage.alt = product.name;
+                productImage.classList.add('product-image');
+
+                const productName = document.createElement('p');
+                productName.textContent = product.name;
+
+                const productPrice = document.createElement('p');
+                productPrice.textContent = '$' + product.price.toFixed(2);
+
+                const addToCartButton = document.createElement('button');
+                addToCartButton.textContent = 'Add to Cart';
+                addToCartButton.classList.add('add-to-cart-button');
+                addToCartButton.addEventListener('click', () => addToCart(product));
+
+                productCard.appendChild(productImage);
+                productCard.appendChild(productName);
+                productCard.appendChild(productPrice);
+                productCard.appendChild(addToCartButton);
+
+                productContainer.appendChild(productCard);
+            });
+        }
+
+        function addToCart(product) {
+            alert('Added ' + product.name + ' to the cart!');
+        }
+
+        displayProducts();
+    </script>
+
+</body>
+
+</html>
